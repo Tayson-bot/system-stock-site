@@ -34,11 +34,15 @@
   </style>
 </head>
 <body>
-  <header class="text-center py-5">
+  <<header class="text-center py-5 position-relative">
+    <!-- Botão para o Painel -->
+    <a href="/login" class="btn btn-outline-light position-absolute top-0 end-0 m-3">Painel</a>
+
     <h1 class="display-4">System Stock</h1>
     <p class="lead">A gestão completa do seu estoque e vendas em um só lugar.</p>
     <a href="#form" class="btn btn-primary btn-lg mt-3">Quero Testar</a>
   </header>
+
 
   <section class="section text-center">
     <div class="container">
@@ -72,20 +76,22 @@
     <div class="container">
       <h2>Solicite Acesso Grátis</h2>
       <p class="mb-4">Preencha seus dados e entraremos em contato:</p>
-      <form class="row justify-content-center" onsubmit="enviarWhatsApp(event)">
+      <form class="row justify-content-center" action="/salvar-lead" method="POST">
         <div class="col-md-4 mb-3">
-          <input type="text" class="form-control" placeholder="Seu nome" id="nome" required>
+          <input type="text" class="form-control" placeholder="Seu nome" name="nome" required />
         </div>
         <div class="col-md-4 mb-3">
-          <input type="email" class="form-control" placeholder="Seu e-mail" id="email" required>
+          <input type="email" class="form-control" placeholder="Seu e-mail" name="email" required />
         </div>
         <div class="col-md-4 mb-3">
-          <input type="tel" class="form-control" placeholder="Seu WhatsApp" id="whats" required>
+          <input type="tel" class="form-control" placeholder="Seu WhatsApp" name="whatsapp" required />
         </div>
         <div class="col-12">
           <button type="submit" class="btn btn-primary">Solicitar Teste</button>
         </div>
       </form>
+
+
     </div>
   </section>
 
