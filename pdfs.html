@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>PDFs Gerados</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-white">
+  <div class="container py-5">
+    <h2 class="mb-4">PDFs Gerados</h2>
+    <a href="/painel" class="btn btn-secondary mb-3">Voltar ao Painel</a>
+    <ul class="list-group">
+      {% for pdf in arquivos %}
+      <li class="list-group-item d-flex justify-content-between align-items-center bg-secondary text-white">
+        {{ pdf }}
+        <form action="/excluir-pdf/{{ pdf }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir este PDF?')">
+          <button class="btn btn-danger btn-sm">Excluir</button>
+        </form>
+      </li>
+      {% else %}
+      <li class="list-group-item bg-dark text-light">Nenhum PDF encontrado.</li>
+      {% endfor %}
+    </ul>
+  </div>
+</body>
+</html>
