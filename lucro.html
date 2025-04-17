@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="mb-4 text-center">Relatório de Lucro</h2>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped align-middle">
+            <thead class="table-dark text-center">
+                <tr>
+                    <th>Item</th>
+                    <th>Preço de Compra (R$)</th>
+                    <th>Preço de Venda (R$)</th>
+                    <th>Quantidade Vendida</th>
+                    <th>Lucro Total (R$)</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in dados %}
+                <tr>
+                    <td>{{ item.nome_item }}</td>
+                    <td class="text-end">{{ "%.2f"|format(item.preco_compra) }}</td>
+                    <td class="text-end">{{ "%.2f"|format(item.preco_venda) }}</td>
+                    <td class="text-center">{{ item.quantidade }}</td>
+                    <td class="text-end text-success fw-bold">{{ "%.2f"|format(item.lucro) }}</td>
+                    <td>{{ item.data }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="/" class="btn btn-primary">Voltar ao Início</a>
+    </div>
+</div>
+{% endblock %}
